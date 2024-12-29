@@ -57,12 +57,12 @@ private:
   - `patterns` (std::vector<std::vector<int>> &): A list of binary patterns (using `-1` and `1`) to store in the network.
 - **Functionality**:
   - Initializes the weight matrix to zero.
-  - For each pair of neurons \(i, j\), computes the weight:
+  - For each pair of neurons `i, j`, computes the weight:
+  
+    $W_{ij} = \frac{1}{N} \sum_k x_i^{(k)} x_j^{(k)}$
     
-    \[ W_{ij} = \frac{1}{N} \sum_{k} x_i^{(k)} x_j^{(k)} \]
-    
-    where \(N\) is the number of patterns and \(x_i^{(k)}\) is the \(i\)-th element of the \(k\)-th pattern.
-  - Ensures no self-connections by setting \(W_{ii} = 0\).
+    where `N` is the number of patterns and $x_i^{(k)}$ is the i-th element of the k-th pattern.
+  - Ensures no self-connections by setting $W_{ii} = 0$.
 
 ---
 
@@ -75,8 +75,8 @@ private:
   - (double): The energy value of the system.
 - **Functionality**:
   - Computes the energy using the formula:
-    
-    \[ E = -\frac{1}{2} \sum_{i,j} W_{ij} s_i s_j \]
+  
+    $E = -\frac{1}{2} \sum_{i,j} W_{ij} s_i s_j$
 
 ---
 
@@ -89,13 +89,13 @@ private:
   - (std::vector<int>): The updated state of the network.
 - **Functionality**:
   - Computes the activation for each neuron:
-    
-    \[ \text{total} = \sum_{j} W_{ij} s_j \]
-    
+  
+    $\text{total} = \sum_{j} W_{ij} s_j$
+
   - Applies the following update rule:
-    - If `total > 0`: Set \(s_i = 1\).
-    - If `total < 0`: Set \(s_i = -1\).
-    - If `total == 0`: Preserve the previous state \(s_i\).
+    - If `total > 0`: Set $s_i = 1$
+    - If `total < 0`: Set $s_i = -1$
+    - If `total == 0`: Preserve the previous state $s_i$
 
 ---
 
@@ -187,4 +187,4 @@ int main() {
 
 ## References
 - [Hopfield Network GFG](https://www.geeksforgeeks.org/hopfield-neural-network/)
-- Information Theory, Inference, and Learning Algorithms, Daviv J.C. MacKay
+- Information Theory, Inference, and Learning Algorithms, David J.C. MacKay
