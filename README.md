@@ -1,4 +1,4 @@
-# HopfieldNetwork Class Documentation
+# HopfieldNetwork Documentation
 
 ## Overview
 The `HopfieldNetwork` class implements a simple Hopfield Neural Network, capable of learning patterns, completing noisy patterns, and converging to stable states. It is designed for pattern recognition and stability analysis using energy minimization.
